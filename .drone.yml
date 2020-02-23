@@ -1,0 +1,15 @@
+---
+kind: pipeline
+name: deploy-prod
+
+steps:
+  - name: build-docker
+    image: plugins/docker
+    settings:
+      password:
+        from_secret: password
+      username:
+        from_secret: username
+      repo: ktruckenmiller/boilr
+      tags:
+        - latest
